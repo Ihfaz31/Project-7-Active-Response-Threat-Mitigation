@@ -19,13 +19,14 @@ I performed manual Mitigation Injection. Using the Linux kernel's firewall (ipta
 I confirmed that the attacker could no longer communicate with the server (Ping Timeout).
 
 ## Technical Implementation
-Configuration: Modified ossec.conf to define the <active-response> block and the <command> to execute firewall-drop.
-Mitigation Command:
+### Configuration: 
+Modified ossec.conf to define the <active-response> block and the <command> to execute firewall-drop.
+### Mitigation Command:
 sudo iptables -I INPUT -s 192.168.0.115 -j DROP
-Verification Command:
+### Verification Command:
 sudo iptables -L -n | grep 192.168.0.115
 
 ## Key Takeaways for My Portfolio
-Automation Logic: Learned how SIEM tools bridge the gap between "Alerting" and "Action."
-Troubleshooting: Successfully diagnosed script execution failures by analyzing active-responses.log.
-Defense-in-Depth: Demonstrated that even when automation fails, a SOC Analyst must be able to perform manual mitigation to protect the infrastructure.
+#### Automation Logic: Learned how SIEM tools bridge the gap between "Alerting" and "Action."
+#### Troubleshooting: Successfully diagnosed script execution failures by analyzing active-responses.log.
+#### Defense-in-Depth: Demonstrated that even when automation fails, a SOC Analyst must be able to perform manual mitigation to protect the infrastructure.
